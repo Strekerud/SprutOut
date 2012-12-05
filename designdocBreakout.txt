@@ -15,7 +15,7 @@ Motor: Slick2D (tillegg til LWJGL (Java Lightweight Game Library))
 Foreløpige krav: 
 
 1. Koding og innlesning av brett (levels) + lagringsformat
-2. Koding av fysikken (bevegelse av paddle, spretting av ball, grensene på brettet)
+2. Koding av fysikken (bevegelse av paddle, spretting av ball, grensene på brettet) | Emil
 3. Koding av spill-loopen | Kristoffer
 4. Koding av meny
 5. Koding av powerups
