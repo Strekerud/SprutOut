@@ -7,11 +7,12 @@ import org.newdawn.slick.SlickException;
 
 public class SprutOut extends BasicGame {
 
+	static AppGameContainer app;
+	static int maxFPS = 60;     //Bør flyttes inn i init?
 	
-
 	public SprutOut() {
 		super("SprutOut - By Team Retard");
-		
+				
 	}
 
 	@Override
@@ -19,11 +20,9 @@ public class SprutOut extends BasicGame {
 		//All tegning av objekter
 		
 	}
-
 	@Override
 	public void init(GameContainer arg0) throws SlickException {
 		//Her initialiseres alt
-		
 	}
 
 	@Override
@@ -35,11 +34,12 @@ public class SprutOut extends BasicGame {
 	 public static void main(String[] args) 
 				throws SlickException
 	    {
-	         AppGameContainer app = 
-				new AppGameContainer(new SprutOut());
-	 
-	         app.setDisplayMode(800, 600, false);
-	         app.start();
+		 	
+		 	app = new AppGameContainer(new SprutOut());
+		 	app.setDisplayMode(800, 600, false);
+		 	app.setTargetFrameRate(maxFPS);
+		 	app.start();
+
 	    }
 
 }
