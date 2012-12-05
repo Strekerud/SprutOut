@@ -3,6 +3,7 @@ import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 
 
@@ -13,6 +14,7 @@ public class SprutOut extends BasicGame {
 	
 	Image menuLogo;
 	Image menuClick;
+	static private Music openMenuMusic;
 	
 	public SprutOut() {
 		super("SprutOut - By Team Retard");
@@ -30,8 +32,10 @@ public class SprutOut extends BasicGame {
 	@Override
 	public void init(GameContainer arg0) throws SlickException {
 		//Initialiserer menyen
-		menuLogo = new Image("img/Menu_Logo.png");
-		menuClick = new Image("img/Menu_Click.png");
+		menuLogo = new Image("res/img/Menu_Logo.png");
+		menuClick = new Image("res/img/Menu_Click.png");
+		
+	
 	}
 
 	@Override
@@ -47,8 +51,10 @@ public class SprutOut extends BasicGame {
 		 	app = new AppGameContainer(new SprutOut());
 		 	app.setDisplayMode(800, 800, false);
 		 	app.setTargetFrameRate(maxFPS);
+		 	openMenuMusic = new Music("res/music/theme.ogg");
+			openMenuMusic.play();
 		 	app.start();
-
+		 	
 	    }
 
 }
