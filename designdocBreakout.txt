@@ -1,0 +1,27 @@
+__________                        __                 __   
+\______   \_______   ____ _____  |  | ______  __ ___/  |_ 
+ |    |  _/\_  __ \_/ __ \\__  \ |  |/ /  _ \|  |  \   __\
+ |    |   \ |  | \/\  ___/ / __ \|    <  <_> )  |  /|  |  
+ |______  / |__|    \___  >____  /__|_ \____/|____/ |__|  
+        \/              \/     \/     \/                  
+
+---------------- by Team Retard -------------------------
+
+
+Mål: Å lage et enkelt breakoutspill, for så å videreutvikle til noe som er gøy å spille
+
+Motor: Slick2D (tillegg til LWJGL (Java Lightweight Game Library))
+
+Foreløpige krav: 
+
+1. Koding og innlesning av brett (levels) + lagringsformat
+2. Koding av fysikken (bevegelse av paddle, spretting av ball, grensene på brettet)
+3. Koding av spill-loopen | Kristoffer
+4. Koding av meny
+5. Koding av powerups
+5. Grafikk Meny
+6. Grafikk (paddle, bricks, background, powerups og ball)
+7. Musikk (background, gamesounds)
+8. Koding av kontroller
+
+Fint om man setter sitt eget navn ved siden av hva man vil gjøre her.
