@@ -41,6 +41,10 @@ public class SprutOut extends BasicGame {
 	@Override
 	public void init(GameContainer arg0) throws SlickException {
 		//Initialiserer menyen
+		//Setter ikoner til tittellinjen + alt-tab + Startmeny
+		String[] icons = { "res/img/icons/icon16_2.png", "res/img/icons/icon24_2.png", "res/img/icons/icon32_2.png"};
+		arg0.setIcons(icons);
+		
 		menuLogo = new Image("res/img/Menu_Logo.png");
 		menuClick = new Image("res/img/Menu_Click.png");
 		
