@@ -28,7 +28,7 @@ public class SprutOut extends BasicGame {
 		if(menuTime) {
 			//Tegner menyen
 			menuLogo.draw(100,100);
-			menuClick.draw(200,300);
+			menuClick.draw(230,300);
 		}
 	
 		
