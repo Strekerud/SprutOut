@@ -19,7 +19,7 @@ public class SprutOut extends BasicGame {
 	static private Music openMenuMusic;
 	boolean menuTime = true;
 	
-	
+	// Heisann dere! :D
 	
 	public SprutOut() {
 		super("SprutOut - By Team Retard");
