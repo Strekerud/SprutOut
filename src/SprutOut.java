@@ -66,7 +66,7 @@ public class SprutOut extends BasicGame {
 	 	app.setDisplayMode(800, 800, false);
 	 	app.setTargetFrameRate(maxFPS);
 		openMenuMusic = new Music("res/music/theme.ogg");
-		openMenuMusic.play();
+		openMenuMusic.loop();
 	 	app.start();
 		 	
 	 }
