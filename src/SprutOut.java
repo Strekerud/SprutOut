@@ -6,6 +6,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Rectangle;
 
 
 public class SprutOut extends BasicGame {
@@ -18,6 +19,8 @@ public class SprutOut extends BasicGame {
 	static private Music openMenuMusic;
 	boolean menuTime = true;
 	
+	
+	
 	public SprutOut() {
 		super("SprutOut - By Team Retard");
 				
@@ -29,6 +32,7 @@ public class SprutOut extends BasicGame {
 			//Tegner menyen
 			menuLogo.draw(100,100);
 			menuClick.draw(230,300);
+			
 		}
 	
 		
