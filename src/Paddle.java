@@ -28,7 +28,7 @@ public class Paddle {
 		this.paddleShape = paddleShape;
 	}
 	
-	public Rectangle getPaddleShape()) {
+	public Rectangle getPaddleShape() {
 		return paddleShape;
 	}
 	
