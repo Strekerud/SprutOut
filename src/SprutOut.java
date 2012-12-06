@@ -51,6 +51,8 @@ public class SprutOut extends BasicGame {
 	public void update(GameContainer arg0, int arg1) throws SlickException {
 		//Alle oppdatering (game logic)
 		Input input = arg0.getInput();
+		
+		
 		 
 	    if(menuTime && input.isKeyDown(Input.KEY_SPACE)) {
 	    	menuTime = false;
