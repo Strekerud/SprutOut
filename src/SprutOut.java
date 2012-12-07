@@ -12,7 +12,7 @@ import org.newdawn.slick.SlickException;
 public class SprutOut extends BasicGame {
 
 	static AppGameContainer app;
-	static int maxFPS = 60;     //Bør flyttes inn i init?
+	static int maxFPS = 60;
 	
 	final int screenHeight = 600;
 	final int screenWidth = 800;
