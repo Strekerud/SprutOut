@@ -24,8 +24,7 @@ public class SprutOut extends BasicGame {
 	
 	Paddle p; 
 	
-	// Heisann dere! :D
-	
+		
 	public SprutOut() {
 		super("SprutOut - By Team Retard");
 				
