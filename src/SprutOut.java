@@ -18,7 +18,7 @@ public class SprutOut extends BasicGame {
 	final int screenWidth = 800;
 	
 	final int leftBorder = 100;
-	final int rightBorder = screenWidth - 100;
+	final int rightBorder = screenWidth - 200;
 	
 	Image menuLogo;
 	Image menuClick;
@@ -90,7 +90,7 @@ public class SprutOut extends BasicGame {
 	    
 	    	    
 	    else if(input.isKeyDown(Input.KEY_RIGHT)) {
-	    	if(p.x_pos == screenWidth-p.width){
+	    	if(p.x_pos == rightBorder){
 	    		p.x_pos += 0.0;
 	    	}else{
 	    		p.x_pos += p.paddleSpeed;
@@ -98,7 +98,7 @@ public class SprutOut extends BasicGame {
 	    }
 	    
 	    else if(input.isKeyDown(Input.KEY_LEFT)) {
-	    	if(p.x_pos == 0.0){
+	    	if(p.x_pos == leftBorder){
 	    		p.x_pos += 0.0;
 	    	}else{
 	    		p.x_pos -= p.paddleSpeed;
