@@ -17,6 +17,9 @@ public class SprutOut extends BasicGame {
 	final int screenHeight = 600;
 	final int screenWidth = 800;
 	
+	final int leftBorder = 100;
+	final int rightBorder = screenWidth - 100;
+	
 	Image menuLogo;
 	Image menuClick;
 	static private Music openMenuMusic;
