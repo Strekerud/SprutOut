@@ -22,6 +22,7 @@ public class Paddle {
 		this.height = height;
 		this.x_pos = x_pos;
 		this.y_pos = y_pos;
+		paddleShape = new Rectangle((float)x_pos,(float)y_pos,(float)width,(float)height);
 	}
 	
 	public void setPaddleImage(Image paddleImage) {
