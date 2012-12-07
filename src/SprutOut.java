@@ -14,6 +14,9 @@ public class SprutOut extends BasicGame {
 	static AppGameContainer app;
 	static int maxFPS = 60;     //Bør flyttes inn i init?
 	
+	final int screenHeight = 600;
+	final int screenWidth = 800;
+	
 	Image menuLogo;
 	Image menuClick;
 	static private Music openMenuMusic;
@@ -39,7 +42,7 @@ public class SprutOut extends BasicGame {
 		}
 		else {
 			//Tegner alt annet
-			arg1.drawRect((float)p.x_pos,(float) p.y_pos,(float) p.width,(float) p.height);
+			arg1.drawRect((float)p.x_pos,(float) p.y_pos,(float) p.width,(float) p.height); //Tegner paddlen (må erstattes av ordentlig bilde)
 		}
 	
 		
@@ -56,8 +59,7 @@ public class SprutOut extends BasicGame {
 		menuClick = new Image("res/img/Menu_Click.png");
 		
 		//Oppretter paddelen
-		System.out.println(arg0.getScreenHeight());
-		p = new Paddle(100,25,100,800-25);
+		p = new Paddle(100,25,200,screenHeight - 26);
 		
 	
 	}
@@ -74,6 +76,14 @@ public class SprutOut extends BasicGame {
 	    	menuLogo.destroy();
 	    	menuClick.destroy();
 	    }
+	    
+	    else if(input.isKeyDown(Input.KEY_RIGHT)) {
+	    	p.x_pos += p.paddleSpeed;
+	    }
+	    
+	    else if(input.isKeyDown(Input.KEY_LEFT)) {
+	    	p.x_pos -= p.paddleSpeed;
+	    }
 		
 	}
 	
@@ -83,7 +93,6 @@ public class SprutOut extends BasicGame {
 	 	app.setDisplayMode(800, 600, true);
 	 	app.setTargetFrameRate(maxFPS);
 	 	app.setShowFPS(false);
-	 	//app.setFullscreen(true);
 		openMenuMusic = new Music("res/music/theme.ogg");
 		openMenuMusic.loop();
 	 	app.start();
