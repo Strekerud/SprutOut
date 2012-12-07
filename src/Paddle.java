@@ -6,8 +6,8 @@ import org.newdawn.slick.geom.Rectangle;
 
 public class Paddle {
 	
-	int width;
-	int height;
+	double width;
+	double height;
 	
 	double x_pos;
 	double y_pos;
@@ -15,7 +15,7 @@ public class Paddle {
 	Image paddleImage;
 	Rectangle paddleShape;
 	
-	Paddle(int width, int height, double x_pos, double y_pos) {
+	Paddle(double width, double height, double x_pos, double y_pos) {
 		this.width = width;
 		this.height = height;
 		this.x_pos = x_pos;

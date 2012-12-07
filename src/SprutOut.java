@@ -19,6 +19,8 @@ public class SprutOut extends BasicGame {
 	static private Music openMenuMusic;
 	boolean menuTime = true;
 	
+	Paddle p; 
+	
 	// Heisann dere! :D
 	
 	public SprutOut() {
@@ -33,6 +35,11 @@ public class SprutOut extends BasicGame {
 			menuLogo.draw(100,100);
 			menuClick.draw(230,300);
 			
+			
+		}
+		else {
+			//Tegner alt annet
+			arg1.drawRect((float)p.x_pos,(float) p.y_pos,(float) p.width,(float) p.height);
 		}
 	
 		
@@ -47,6 +54,10 @@ public class SprutOut extends BasicGame {
 		
 		menuLogo = new Image("res/img/Menu_Logo.png");
 		menuClick = new Image("res/img/Menu_Click.png");
+		
+		//Oppretter paddelen
+		System.out.println(arg0.getScreenHeight());
+		p = new Paddle(100,25,100,800-25);
 		
 	
 	}
@@ -69,9 +80,10 @@ public class SprutOut extends BasicGame {
 	public static void main(String[] args) throws SlickException {
 	 	
 	 	app = new AppGameContainer(new SprutOut());
-	 	app.setDisplayMode(800, 800, false);
+	 	app.setDisplayMode(800, 600, true);
 	 	app.setTargetFrameRate(maxFPS);
 	 	app.setShowFPS(false);
+	 	//app.setFullscreen(true);
 		openMenuMusic = new Music("res/music/theme.ogg");
 		openMenuMusic.loop();
 	 	app.start();
