@@ -40,8 +40,11 @@ public class SprutOut extends BasicGame {
 			
 		}
 		else {
-			//Tegner alt annet
-			arg1.drawRect((float)p.x_pos,(float) p.y_pos,(float) p.width,(float) p.height); //Tegner paddlen (må erstattes av ordentlig bilde)
+			//Tegner paddle (må erstattes av bilde)
+			arg1.drawRect((float)p.x_pos,(float) p.y_pos,(float) p.width,(float) p.height);
+			//Tegner borders (også midlertidig)
+			arg1.drawRect(0,0,100,screenHeight-1);
+			arg1.drawRect(screenWidth - 100,0,100,screenHeight-1);
 		}
 	
 		
@@ -89,7 +92,7 @@ public class SprutOut extends BasicGame {
 	public static void main(String[] args) throws SlickException {
 	 	
 	 	app = new AppGameContainer(new SprutOut());
-	 	app.setDisplayMode(800, 600, true);
+	 	app.setDisplayMode(800, 600, false);
 	 	app.setTargetFrameRate(maxFPS);
 	 	app.setShowFPS(false);
 		openMenuMusic = new Music("res/music/theme.ogg");
