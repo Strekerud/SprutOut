@@ -27,6 +27,8 @@ public class SprutOut extends BasicGame {
 	
 	Paddle p; 
 	
+	Image borderImage;
+	
 		
 	public SprutOut() {
 		super("SprutOut - By Team Retard");
@@ -48,6 +50,8 @@ public class SprutOut extends BasicGame {
 			//Tegner borders (også midlertidig)
 			arg1.drawRect(0,0,100,screenHeight-1);
 			arg1.drawRect(screenWidth - 100,0,100,screenHeight-1);
+			arg1.drawImage(borderImage,0,0);
+			arg1.drawImage(borderImage,screenWidth - 100,0);
 		}
 	
 		
@@ -65,6 +69,8 @@ public class SprutOut extends BasicGame {
 		
 		//Oppretter paddelen
 		p = new Paddle(100,25,200,screenHeight - 26);
+		
+		borderImage = new Image("res/img/border_placeholder.png");
 		
 	
 	}
