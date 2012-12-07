@@ -68,7 +68,13 @@ public class SprutOut extends BasicGame {
 		
 	
 	}
-
+	public boolean border(double x_pos,double y_pos){
+		if(x_pos > 0 && x_pos < screenWidth){
+			return true;
+		}else{
+			return false;
+		}
+	}
 	@Override
 	public void update(GameContainer arg0, int arg1) throws SlickException {
 		//Alle oppdatering (game logic)
@@ -82,12 +88,21 @@ public class SprutOut extends BasicGame {
 	    	menuClick.destroy();
 	    }
 	    
+	    	    
 	    else if(input.isKeyDown(Input.KEY_RIGHT)) {
-	    	p.x_pos += p.paddleSpeed;
+	    	if(p.x_pos == screenWidth-p.width){
+	    		p.x_pos += 0.0;
+	    	}else{
+	    		p.x_pos += p.paddleSpeed;
+	    	}
 	    }
 	    
 	    else if(input.isKeyDown(Input.KEY_LEFT)) {
-	    	p.x_pos -= p.paddleSpeed;
+	    	if(p.x_pos == 0.0){
+	    		p.x_pos += 0.0;
+	    	}else{
+	    		p.x_pos -= p.paddleSpeed;
+	    	}
 	    }
 		
 	}
@@ -99,7 +114,7 @@ public class SprutOut extends BasicGame {
 	 	app.setTargetFrameRate(maxFPS);
 	 	app.setShowFPS(false);
 		openMenuMusic = new Music("res/music/theme.ogg");
-		openMenuMusic.loop();
+		//openMenuMusic.loop();
 	 	app.start();
 		 	
 	 }
