@@ -120,7 +120,7 @@ public class SprutOut extends BasicGame {
 			
 			
 			
-			if(p.paddleShape.intersects(b.ballShape) && b.getBallShape().getY() >= (p.paddleShape.getY() - p.height)) {
+			if(p.paddleShape.intersects(b.ballShape)) {
 				//System.out.println("BALL TREFFER PADDLE");
 				if(dir == 's'){
 					dir = 'e';
