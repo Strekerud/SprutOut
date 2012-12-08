@@ -22,6 +22,8 @@ public class SprutOut extends BasicGame {
 	
 	Image menuLogo;
 	Image menuClick;
+	Image ball;
+	
 	static private Music openMenuMusic;
 	boolean menuTime = true;
 	boolean paused = false;
@@ -54,7 +56,7 @@ public class SprutOut extends BasicGame {
 		else {
 			//Tegner paddle (må erstattes av bilde)
 			arg1.drawRect(p.getPaddleShape().getX(),p.getPaddleShape().getY(),(float) p.width,(float) p.height);
-			arg1.drawOval(b.getBallShape().getX(),b.getBallShape().getY(), (float)b.radius, (float)b.radius);
+			arg1.drawImage(ball, b.getBallShape().getX(), b.getBallShape().getY());
 			//Tegner borders (også midlertidig)
 			arg1.drawRect(0,0,100,screenHeight-1);
 			arg1.drawRect(screenWidth - 100,0,100,screenHeight-1);
@@ -74,6 +76,7 @@ public class SprutOut extends BasicGame {
 		
 		menuLogo = new Image("res/img/Menu_Logo.png");
 		menuClick = new Image("res/img/Menu_Click.png");
+		ball = new Image("res/img/ball.png");
 		
 		//Oppretter paddelen
 		p = new Paddle(100,25,200,screenHeight - 26);
