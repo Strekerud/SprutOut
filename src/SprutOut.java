@@ -25,6 +25,7 @@ public class SprutOut extends BasicGame {
 	static private Music openMenuMusic;
 	boolean menuTime = true;
 	boolean paused = false;
+	boolean music = true;
 	
 	Image pause;
 	
@@ -203,7 +204,16 @@ public class SprutOut extends BasicGame {
 	    	}
 	    	p.paddleShape.setX((float)p.x_pos);
 	    	p.paddleShape.setY((float)p.y_pos);
-	    }	    
+	    }else if(input.isKeyPressed(Input.KEY_M)){
+	    	if(music){
+	    		music = false;
+	    		openMenuMusic.pause();
+	    	}else{
+	    		music = true;
+	    		openMenuMusic.resume();
+	    	}
+	    
+	    }
 	    		
 	}
 	
