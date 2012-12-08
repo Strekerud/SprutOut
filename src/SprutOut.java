@@ -60,6 +60,7 @@ public class SprutOut extends BasicGame {
 			
 		}
 		else {
+			
 			//Tegner paddle (må erstattes av bilde)
 			arg1.drawRect(p.getPaddleShape().getX(),p.getPaddleShape().getY(),(float) p.width,(float) p.height);
 			arg1.drawImage(ball, b.getBallShape().getX(), b.getBallShape().getY());
@@ -151,6 +152,14 @@ public class SprutOut extends BasicGame {
 					moveBall(b.x_pos,b.y_pos,dir);
 				}
 				
+			}
+			
+			//Brick collisions
+			for(int i = 0; i < bricks.size();i++) {
+				if(b.ballShape.intersects(bricks.get(i).brickShape)) {
+					System.out.println("BALL -> BRICK COLLISION");
+					bricks.remove(i);
+				}
 			}
 			
 			if(b.x_pos-b.ballSpeed<=leftBorder){

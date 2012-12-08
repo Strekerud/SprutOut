@@ -1,5 +1,6 @@
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Rectangle;
 
 
 public class Brick {
@@ -13,6 +14,7 @@ public class Brick {
 	public int lives;
 	
 	public Image brickImage;
+	public Rectangle brickShape;
 	
 	Brick(int width, int height, int x_pos, int y_pos,int lives, String brickImage) {
 		this.width = width;
@@ -26,6 +28,7 @@ public class Brick {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		this.brickShape = new Rectangle((float)x_pos,(float)y_pos,(float)width,(float)height);
 	}
 	
 }
