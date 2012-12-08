@@ -1,3 +1,6 @@
+import java.io.FileNotFoundException;
+import java.util.LinkedList;
+
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
@@ -35,6 +38,9 @@ public class SprutOut extends BasicGame {
 	Paddle p; 
 	Ball b;
 	
+	LevelParser lp;
+	LinkedList<Brick> bricks;
+	
 	Image borderImage;
 	char dir;
 	
@@ -62,6 +68,10 @@ public class SprutOut extends BasicGame {
 			arg1.drawRect(screenWidth - 100,0,100,screenHeight-1);
 			arg1.drawImage(borderImage,0,0);
 			arg1.drawImage(borderImage,screenWidth - 100,0);
+			for(int i = 0; i < bricks.size();i++) {
+				Brick tmp = bricks.get(i);
+				arg1.drawImage(tmp.brickImage,tmp.x_pos,tmp.y_pos);
+			}
 		}
 	
 		
@@ -84,6 +94,13 @@ public class SprutOut extends BasicGame {
 		b = new Ball(25,150,150);
 		dir = 'n';
 		
+		lp = new LevelParser();
+	    try {
+			bricks = lp.parseLevel("res/levels/testLevel.txt");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		borderImage = new Image("res/img/border_placeholder.png");
 		
