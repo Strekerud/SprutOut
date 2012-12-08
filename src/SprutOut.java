@@ -118,7 +118,7 @@ public class SprutOut extends BasicGame {
 		Input input = arg0.getInput();
 		if(menuTime == false&&paused == false){
 			if(p.paddleShape.intersects(b.ballShape)) {
-				System.out.println("BALL TREFFER PADDLE");
+				//System.out.println("BALL TREFFER PADDLE");
 				if(dir == 's'){
 					dir = 'e';
 					moveBall(b.x_pos,b.y_pos,dir);
@@ -211,7 +211,7 @@ public class SprutOut extends BasicGame {
 	 	app.setTargetFrameRate(maxFPS);
 	 	app.setShowFPS(false);
 		openMenuMusic = new Music("res/music/theme.ogg");
-		//openMenuMusic.loop();
+		openMenuMusic.loop();
 	 	app.start();
 		 	
 	 }
