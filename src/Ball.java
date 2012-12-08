@@ -13,7 +13,7 @@ public class Ball {
 	Image ballImage;
 	Circle ballShape;
 	
-	double ballSpeed = 4.0;
+	double ballSpeed = 6.0;
 	
 	Ball(double radius,double x_pos,double y_pos) {
 		this.x_pos = x_pos;

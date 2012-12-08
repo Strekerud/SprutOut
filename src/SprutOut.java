@@ -132,8 +132,8 @@ public class SprutOut extends BasicGame {
 	@Override
 	public void update(GameContainer arg0, int arg1) throws SlickException {
 		
-		System.out.println("Ball x: " + b.ballShape.getX() + " y: " +  b.ballShape.getY());
-		System.out.println("Paddle x: " + p.paddleShape.getX() + " y: " +  p.paddleShape.getY());
+		//System.out.println("Ball x: " + b.ballShape.getX() + " y: " +  b.ballShape.getY());
+		//System.out.println("Paddle x: " + p.paddleShape.getX() + " y: " +  p.paddleShape.getY());
 		
 		//Alle oppdatering (game logic)
 		Input input = arg0.getInput();
