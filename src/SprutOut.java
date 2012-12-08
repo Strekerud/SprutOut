@@ -53,7 +53,7 @@ public class SprutOut extends BasicGame {
 		else {
 			//Tegner paddle (må erstattes av bilde)
 			arg1.drawRect((float)p.x_pos,(float) p.y_pos,(float) p.width,(float) p.height);
-			arg1.drawOval((float)b.x_pos,(float)b.y_pos, (float)b.radius, (float)b.radius);
+			arg1.drawOval(b.getBallShape().getX(),b.getBallShape().getY(), (float)b.radius, (float)b.radius);
 			//Tegner borders (også midlertidig)
 			arg1.drawRect(0,0,100,screenHeight-1);
 			arg1.drawRect(screenWidth - 100,0,100,screenHeight-1);
