@@ -33,6 +33,8 @@ public class SprutOut extends BasicGame {
 	boolean paused = false;
 	boolean music = true;
 	
+	boolean slept = false;
+	
 	Image pause;
 	
 	
@@ -75,6 +77,16 @@ public class SprutOut extends BasicGame {
 				Brick tmp = bricks.get(i);
 				arg1.drawImage(tmp.brickImage,tmp.x_pos,tmp.y_pos);
 			}
+			if(!slept) {
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				slept = true;
+			}
+			
 		}
 	
 		
@@ -96,7 +108,7 @@ public class SprutOut extends BasicGame {
 		//Oppretter paddelen
 		p = new Paddle(100,25,200,screenHeight - 26);
 		//Oppretter ballen
-		b = new Ball(25,150,150);
+		b = new Ball(25,150,350);
 		dir = 'w';
 		
 		lp = new LevelParser();
@@ -162,6 +174,26 @@ public class SprutOut extends BasicGame {
 			for(int i = 0; i < bricks.size();i++) {
 				if(b.ballShape.intersects(bricks.get(i).brickShape)) {
 					System.out.println("BALL -> BRICK COLLISION");
+					//n er opp til høyre
+					//s er ned til venstre
+					//e opp til venstre
+					//w ned til høyre
+					if(dir == 'n') {
+						dir = 'w';
+						moveBall(b.x_pos,b.y_pos,dir);
+					}
+					else if(dir == 'w') {
+						dir = 'n';
+						moveBall(b.x_pos,b.y_pos,dir);
+					}
+					else if(dir == 's') {
+						dir = 'e';
+						moveBall(b.x_pos,b.y_pos,dir);
+					}
+					else if(dir == 'e') {
+						dir = 's';
+						moveBall(b.x_pos,b.y_pos,dir);
+					}
 					bricks.remove(i);
 				}
 			}
