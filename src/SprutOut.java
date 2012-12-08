@@ -62,7 +62,7 @@ public class SprutOut extends BasicGame {
 		}
 		else {
 			
-			arg1.drawImage(background, 0, 0);
+			arg1.drawImage(background, 99, 0);
 			//Tegner paddle (må erstattes av bilde)
 			arg1.drawRect(p.getPaddleShape().getX(),p.getPaddleShape().getY(),(float) p.width,(float) p.height);
 			arg1.drawImage(ball, b.getBallShape().getX(), b.getBallShape().getY());
