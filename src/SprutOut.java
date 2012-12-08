@@ -89,23 +89,46 @@ public class SprutOut extends BasicGame {
 		if(direction == 'n'){ // opp til høyre
 			b.x_pos = b.x_pos + b.ballSpeed;
 			b.y_pos = b.y_pos - b.ballSpeed;
+			
 		}else if(direction == 's'){ //ned til venstre
 			b.x_pos = b.x_pos - b.ballSpeed;
 			b.y_pos = b.y_pos + b.ballSpeed;
+			
 		}else if(direction == 'e'){ // opp til venstre
 			b.x_pos = b.x_pos - b.ballSpeed;
 			b.y_pos = b.y_pos - b.ballSpeed;
+			;
 		}else if(direction == 'w'){ // ned til høyre
 			b.x_pos = b.x_pos + b.ballSpeed;
 			b.y_pos = b.y_pos + b.ballSpeed;
+		
 		}
+		
+		b.ballShape.setX((float)b.x_pos);
+		b.ballShape.setY((float)b.y_pos);
 	}
 	
 	@Override
 	public void update(GameContainer arg0, int arg1) throws SlickException {
+		
+		//System.out.println("Ball x: " + b.ballShape.getX() + " y: " +  b.ballShape.getY());
+		//System.out.println("Paddle x: " + p.paddleShape.getX() + " y: " +  p.paddleShape.getY());
+		
 		//Alle oppdatering (game logic)
 		Input input = arg0.getInput();
 		if(menuTime == false&&paused == false){
+			if(p.paddleShape.intersects(b.ballShape)) {
+				System.out.println("BALL TREFFER PADDLE");
+				if(dir == 's'){
+					dir = 'e';
+					moveBall(b.x_pos,b.y_pos,dir);
+				}else if(dir == 'w'){
+					dir = 'n';
+					moveBall(b.x_pos,b.y_pos,dir);
+				}
+				
+			}
+			
 			if(b.x_pos-b.ballSpeed<=leftBorder){
 				if(dir == 'e'){
 					dir = 'n';
@@ -139,6 +162,8 @@ public class SprutOut extends BasicGame {
 					moveBall(b.x_pos,b.y_pos,dir);
 				}
 			}
+			
+			
 			else{
 				moveBall(b.x_pos,b.y_pos,dir);
 			}
@@ -158,19 +183,23 @@ public class SprutOut extends BasicGame {
 	    	}
 	    }
 	    else if(input.isKeyDown(Input.KEY_RIGHT)&&paused == false) {
-	    	if(p.x_pos == rightBorder){
+	    	if(p.x_pos >= rightBorder){
 	    		p.x_pos += 0.0;
 	    	}else{
 	    		p.x_pos += p.paddleSpeed;
 	    	}
+	    	p.paddleShape.setX((float)p.x_pos);
+	    	p.paddleShape.setY((float)p.y_pos);
 	    }
 	    
 	    else if(input.isKeyDown(Input.KEY_LEFT)&&paused == false) {
-	    	if(p.x_pos == leftBorder){
+	    	if(p.x_pos <= leftBorder){
 	    		p.x_pos += 0.0;
 	    	}else{	
 	    		p.x_pos -= p.paddleSpeed;
 	    	}
+	    	p.paddleShape.setX((float)p.x_pos);
+	    	p.paddleShape.setY((float)p.y_pos);
 	    }	    
 	    		
 	}

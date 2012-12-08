@@ -15,7 +15,7 @@ public class Paddle {
 	Image paddleImage;
 	Rectangle paddleShape;
 	
-	int paddleSpeed = 4;
+	int paddleSpeed = 6;
 	
 	Paddle(double width, double height, double x_pos, double y_pos) {
 		this.width = width;
