@@ -26,6 +26,7 @@ public class SprutOut extends BasicGame {
 	Image menuLogo;
 	Image menuClick;
 	Image ball;
+	Image background;
 	
 	static private Music openMenuMusic;
 	boolean menuTime = true;
@@ -88,6 +89,8 @@ public class SprutOut extends BasicGame {
 		menuLogo = new Image("res/img/Menu_Logo.png");
 		menuClick = new Image("res/img/Menu_Click.png");
 		ball = new Image("res/img/ball.png");
+		background = new Image("res/img/bground.png");
+		
 		
 		//Oppretter paddelen
 		p = new Paddle(100,25,200,screenHeight - 26);
