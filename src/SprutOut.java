@@ -52,7 +52,7 @@ public class SprutOut extends BasicGame {
 		}
 		else {
 			//Tegner paddle (må erstattes av bilde)
-			arg1.drawRect((float)p.x_pos,(float) p.y_pos,(float) p.width,(float) p.height);
+			arg1.drawRect(p.getPaddleShape().getX(),p.getPaddleShape().getY(),(float) p.width,(float) p.height);
 			arg1.drawOval(b.getBallShape().getX(),b.getBallShape().getY(), (float)b.radius, (float)b.radius);
 			//Tegner borders (også midlertidig)
 			arg1.drawRect(0,0,100,screenHeight-1);
@@ -111,13 +111,16 @@ public class SprutOut extends BasicGame {
 	@Override
 	public void update(GameContainer arg0, int arg1) throws SlickException {
 		
-		//System.out.println("Ball x: " + b.ballShape.getX() + " y: " +  b.ballShape.getY());
-		//System.out.println("Paddle x: " + p.paddleShape.getX() + " y: " +  p.paddleShape.getY());
+		System.out.println("Ball x: " + b.ballShape.getX() + " y: " +  b.ballShape.getY());
+		System.out.println("Paddle x: " + p.paddleShape.getX() + " y: " +  p.paddleShape.getY());
 		
 		//Alle oppdatering (game logic)
 		Input input = arg0.getInput();
 		if(menuTime == false&&paused == false){
-			if(p.paddleShape.intersects(b.ballShape)) {
+			
+			
+			
+			if(p.paddleShape.intersects(b.ballShape) && b.getBallShape().getY() >= (p.paddleShape.getY() - p.height)) {
 				//System.out.println("BALL TREFFER PADDLE");
 				if(dir == 's'){
 					dir = 'e';
