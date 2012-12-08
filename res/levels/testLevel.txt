@@ -1,3 +1,22 @@
 80 30 50 50 1 res/img/brick_placeholder.png
 80 30 100 100 1 res/img/brick_placeholder.png
-80 300 125 150 1 res/img/brick_placeholder.png
+80 30 125 150 1 res/img/brick_placeholder.png
+80 30 200 150 1 res/img/brick_placeholder.png
+80 30 300 150 1 res/img/brick_placeholder.png
+80 30 400 150 1 res/img/brick_placeholder.png
+80 30 500 150 1 res/img/brick_placeholder.png
+80 30 550 150 1 res/img/brick_placeholder.png
+80 30 125 200 1 res/img/brick_placeholder.png
+80 30 200 200 1 res/img/brick_placeholder.png
+80 30 300 200 1 res/img/brick_placeholder.png
+80 30 400 200 1 res/img/brick_placeholder.png
+80 30 500 200 1 res/img/brick_placeholder.png
+80 30 550 200 1 res/img/brick_placeholder.png
+80 30 125 50 1 res/img/brick_placeholder.png
+80 30 200 50 1 res/img/brick_placeholder.png
+80 30 300 50 1 res/img/brick_placeholder.png
+80 30 400 50 1 res/img/brick_placeholder.png
+80 30 500 50 1 res/img/brick_placeholder.png
+80 30 550 50 1 res/img/brick_placeholder.png
+
+
