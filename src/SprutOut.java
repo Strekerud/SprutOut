@@ -97,7 +97,7 @@ public class SprutOut extends BasicGame {
 		p = new Paddle(100,25,200,screenHeight - 26);
 		//Oppretter ballen
 		b = new Ball(25,150,150);
-		dir = 'n';
+		dir = 'w';
 		
 		lp = new LevelParser();
 	    try {
