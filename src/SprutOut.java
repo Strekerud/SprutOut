@@ -78,7 +78,7 @@ public class SprutOut extends BasicGame {
 		p = new Paddle(100,25,200,screenHeight - 26);
 		//Oppretter ballen
 		b = new Ball(25,150,150);
-		dir = 's';
+		dir = 'n';
 		
 		
 		borderImage = new Image("res/img/border_placeholder.png");
@@ -106,10 +106,7 @@ public class SprutOut extends BasicGame {
 		//Alle oppdatering (game logic)
 		Input input = arg0.getInput();
 		if(menuTime == false&&paused == false){
-			//Dette er den peneste testen ever:D
-			if(b.x_pos-b.ballSpeed>leftBorder&&b.x_pos+b.ballSpeed+b.radius-100<rightBorder&&b.y_pos+b.ballSpeed>0.0&&b.y_pos+b.ballSpeed+b.radius<screenHeight){
-				moveBall(b.x_pos,b.y_pos,dir);
-			}else if(b.x_pos-b.ballSpeed<=leftBorder){
+			if(b.x_pos-b.ballSpeed<=leftBorder){
 				if(dir == 'e'){
 					dir = 'n';
 					moveBall(b.x_pos,b.y_pos,dir);
@@ -142,7 +139,10 @@ public class SprutOut extends BasicGame {
 					moveBall(b.x_pos,b.y_pos,dir);
 				}
 			}
-		}		
+			else{
+				moveBall(b.x_pos,b.y_pos,dir);
+			}
+	}
 		
 	    if(menuTime && input.isKeyDown(Input.KEY_SPACE)) {
 	    	menuTime = false;
