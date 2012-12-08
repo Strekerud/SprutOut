@@ -3,6 +3,14 @@ import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+/*
+ * 
+ * Formatet på levelene
+ * Én linje per brick
+ * Bredde - Høyde - x_pos - y_pos - Liv - BildefilLokasjon
+ */
+
+
 
 public class LevelParser {
 	
