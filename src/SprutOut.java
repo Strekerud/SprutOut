@@ -182,6 +182,14 @@ public class SprutOut extends BasicGame {
 			for(int i = 0; i < bricks.size();i++) {
 				if(b.ballShape.intersects(bricks.get(i).brickShape)) {
 					System.out.println("BALL -> BRICK COLLISION");
+					
+					if(bricks.get(i).lives == 1) {
+						bricks.remove(i);
+					}
+					else {
+						bricks.get(i).lives--;
+					}
+					
 					//n er opp til høyre
 					//s er ned til venstre
 					//e opp til venstre
@@ -202,7 +210,7 @@ public class SprutOut extends BasicGame {
 						dir = 's';
 						moveBall(b.x_pos,b.y_pos,dir);
 					}
-					bricks.remove(i);
+					
 				}
 			}
 			
