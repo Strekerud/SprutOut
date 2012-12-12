@@ -23,6 +23,7 @@ public class LevelParser {
 			bricks.add(new Brick(Integer.parseInt(brickString[0]),Integer.parseInt(brickString[1]),Integer.parseInt(brickString[2]),Integer.parseInt(brickString[3]),Integer.parseInt(brickString[4]), brickString[5]));
 			
 		}
+		s.close();
 		return bricks;
 	}
 	
