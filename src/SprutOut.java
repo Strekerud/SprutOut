@@ -23,20 +23,29 @@ public class SprutOut extends BasicGame {
 	final int leftBorder = 100;
 	final int rightBorder = screenWidth - 200;
 	
+	int[] score = {0,0,0,0};
+	boolean[] life = {true,true,true};
+	
 	Image menuLogo;
 	Image menuClick;
 	Image ball;
 	Image background;
+	Image winnerLogo;
+	Image scorePic;
+	Image one,two,three,four,five,six,seven,eight,nine,zero;
+	Image lifeImg;
+	Image deadLife;
+	
+	Image lifeScore[];
+	Image totalScore[];
 	
 	static private Music openMenuMusic;
 	boolean menuTime = true;
 	boolean paused = false;
 	boolean music = true;
-	
+	boolean winner = false;
+		
 	boolean slept = false;
-	
-	Image pause;
-	
 	
 	Paddle p; 
 	Ball b;
@@ -52,6 +61,31 @@ public class SprutOut extends BasicGame {
 		super("SprutOut - By Team Retard");
 				
 	}
+	public void setScore(){
+		for(int i = 0;i<4;i++){
+			if(score[i] == 0){
+				totalScore[i] = zero;
+			}else if(score[i] == 1){
+				totalScore[i] = one;
+			}else if(score[i] == 2){
+				totalScore[i] = two;
+			}else if(score[i] == 3){
+				totalScore[i] = three;
+			}else if(score[i] == 4){
+				totalScore[i] = four;
+			}else if(score[i] == 5){
+				totalScore[i] = five;
+			}else if(score[i] == 6){
+				totalScore[i] = six;
+			}else if(score[i] == 7){
+				totalScore[i] = seven;
+			}else if(score[i] == 8){
+				totalScore[i] = eight;
+			}else if(score[i] == 9){
+				totalScore[i] = nine;
+			}
+		}
+	}
 
 	@Override
 	public void render(GameContainer arg0, Graphics arg1) throws SlickException {
@@ -61,9 +95,15 @@ public class SprutOut extends BasicGame {
 			menuClick.draw(230,300);
 			
 			
+		}else if(winner){
+			winnerLogo.draw(100,100);
+			scorePic.draw(230,300);
+			totalScore[0].draw(400,300);
+			totalScore[1].draw(420,300);
+			totalScore[2].draw(440,300);
+			totalScore[3].draw(460,300);
 		}
 		else {
-			
 			arg1.drawImage(background, 100, 0);
 			//Tegner paddle (må erstattes av bilde)
 			arg1.drawRect(p.getPaddleShape().getX(),p.getPaddleShape().getY(),(float) p.width,(float) p.height);
@@ -73,6 +113,16 @@ public class SprutOut extends BasicGame {
 			arg1.drawRect(screenWidth - 100,0,100,screenHeight-1);
 			arg1.drawImage(borderImage,0,0);
 			arg1.drawImage(borderImage,screenWidth - 100,0);
+			int lifePos = 100;
+			for(int i = 0;i<3;i++){
+				lifeScore[i].draw(screenWidth-lifePos,100);
+				lifePos-=30;
+			}
+			lifePos = 100;
+			totalScore[0].draw(screenWidth-100,150);
+			totalScore[1].draw(screenWidth-80,150);
+			totalScore[2].draw(screenWidth-60,150);
+			totalScore[3].draw(screenWidth-40,150);
 			for(int i = 0; i < bricks.size();i++) {
 				Brick tmp = bricks.get(i);
 				arg1.drawImage(tmp.brickImage,tmp.x_pos,tmp.y_pos);
@@ -103,7 +153,27 @@ public class SprutOut extends BasicGame {
 		menuClick = new Image("res/img/Menu_Click.png");
 		ball = new Image("res/img/ball.png");
 		background = new Image("res/img/bground.png");
+		winnerLogo = new Image("res/img/winner.png");
+		scorePic = new Image("res/img/score.png");
+		lifeImg = new Image("res/img/life.png");
+		deadLife = new Image("res/img/life_dead.png");
 		
+		//Init score numbers
+		
+		one = new Image("res/img/numbers/one.png");
+		two = new Image("res/img/numbers/two.png");
+		three = new Image("res/img/numbers/three.png");
+		four = new Image("res/img/numbers/four.png");
+		five = new Image("res/img/numbers/five.png");
+		six = new Image("res/img/numbers/six.png");
+		seven = new Image("res/img/numbers/seven.png");
+		eight = new Image("res/img/numbers/eight.png");
+		nine = new Image("res/img/numbers/nine.png");
+		zero = new Image("res/img/numbers/zero.png");
+		
+		totalScore = new Image[]{zero,zero,zero,zero};
+		lifeScore = new Image[]{lifeImg,lifeImg,lifeImg};
+		// Nice hva?
 		
 		//Oppretter paddelen
 		p = new Paddle(100,25,200,screenHeight - 26);
@@ -155,11 +225,15 @@ public class SprutOut extends BasicGame {
 		//Alle oppdatering (game logic)
 		Input input = arg0.getInput();
 		if(menuTime == false&&paused == false){
-			
-			
-			
+			if(life[2] == false){
+				winner = true;
+			}
+			if(bricks.isEmpty()){
+				winner = true;
+			}
 			if(p.paddleShape.intersects(b.ballShape) && b.getBallShape().getY() >= (p.paddleShape.getY() - p.height)) {
 				//System.out.println("BALL TREFFER PADDLE");
+								
 				if(dir == 's'){
 					if(b.x_pos > p.x_pos+p.width/2&&b.x_pos <= b.x_pos+p.width){
 						dir = 'n';
@@ -182,12 +256,19 @@ public class SprutOut extends BasicGame {
 			for(int i = 0; i < bricks.size();i++) {
 				if(b.ballShape.intersects(bricks.get(i).brickShape)) {
 					System.out.println("BALL -> BRICK COLLISION");
-					
+					if(score[1] <= 9){
+						score[1]++;
+					}else{
+						score[0]++;
+						score[1] = 0;
+					}
+					setScore();
 					if(bricks.get(i).lives == 1) {
 						bricks.remove(i);
 					}
 					else {
 						bricks.get(i).lives--;
+						bricks.get(i).brickImage = new Image("res/img/brick_placeholder"+bricks.get(i).lives+".png");
 					}
 					
 					//n er opp til høyre
@@ -239,6 +320,14 @@ public class SprutOut extends BasicGame {
 					moveBall(b.x_pos,b.y_pos,dir);
 				}
 			}else if(b.y_pos+b.ballSpeed+b.radius >= screenHeight){
+				//minus life
+				for(int i = 0;i<3;i++){
+					if(life[i]){
+						lifeScore[i] = deadLife;
+						life[i] = false;
+						break;
+					}
+				}
 				if(dir == 's'){
 					dir = 'e';
 					moveBall(b.x_pos,b.y_pos,dir);
@@ -259,8 +348,7 @@ public class SprutOut extends BasicGame {
 	    	menuLogo.destroy();
 	    	menuClick.destroy();
 	    		    			 
-	    }
-	    else if(input.isKeyPressed(Input.KEY_P)){
+	    }else if(input.isKeyPressed(Input.KEY_P)){
 	    	if(paused == false){
 	    		paused = true;
 	    	}else if (paused == true){
