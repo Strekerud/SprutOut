@@ -193,6 +193,11 @@ public class SprutOut extends BasicGame {
 		
 	
 	}
+	public void resetBall(){
+		b = new Ball(25,150,350);
+		dir = 'w';
+		paused = true;
+	}
 	public void moveBall(double cur_x_pos,double cur_y_pos,char direction){
 		if(direction == 'n'){ // opp til høyre
 			b.x_pos = b.x_pos + b.ballSpeed;
@@ -223,6 +228,8 @@ public class SprutOut extends BasicGame {
 		//System.out.println("Paddle x: " + p.paddleShape.getX() + " y: " +  p.paddleShape.getY());
 		
 		//Alle oppdatering (game logic)
+		double curX = b.x_pos;
+		double curY = b.y_pos;
 		Input input = arg0.getInput();
 		if(menuTime == false&&paused == false){
 			if(life[2] == false){
@@ -341,6 +348,9 @@ public class SprutOut extends BasicGame {
 			else{
 				moveBall(b.x_pos,b.y_pos,dir);
 			}
+			if(b.x_pos == curX && b.y_pos == curY){
+				resetBall();
+			}
 	}
 		
 	    if(menuTime && input.isKeyDown(Input.KEY_SPACE)) {
@@ -382,6 +392,8 @@ public class SprutOut extends BasicGame {
 	    		openMenuMusic.resume();
 	    	}
 	    
+	    }else if(input.isKeyPressed(Input.KEY_ESCAPE)){
+	    	app.exit();
 	    }
 	    		
 	}
