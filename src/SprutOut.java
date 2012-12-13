@@ -194,9 +194,10 @@ public class SprutOut extends BasicGame {
 	
 	}
 	public void resetBall(){
-		b = new Ball(25,150,350);
-		dir = 'w';
-		paused = true;
+		//b = new Ball(25,150,350);
+		//dir = 'w';
+		//paused = true;
+		moveBall(b.x_pos,b.y_pos,dir);
 	}
 	public void moveBall(double cur_x_pos,double cur_y_pos,char direction){
 		if(direction == 'n'){ // opp til høyre
@@ -234,6 +235,7 @@ public class SprutOut extends BasicGame {
 		if(menuTime == false&&paused == false){
 			if(life[2] == false){
 				winner = true;
+				paused = true;
 			}
 			if(bricks.isEmpty()){
 				winner = true;
