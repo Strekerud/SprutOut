@@ -35,6 +35,7 @@ public class SprutOut extends BasicGame {
 	Image one,two,three,four,five,six,seven,eight,nine,zero;
 	Image lifeImg;
 	Image deadLife;
+	Image pauseImg;
 	
 	Image lifeScore[];
 	Image totalScore[];
@@ -116,7 +117,7 @@ public class SprutOut extends BasicGame {
 			int lifePos = 100;
 			for(int i = 0;i<3;i++){
 				lifeScore[i].draw(screenWidth-lifePos,100);
-				lifePos-=30;
+				lifePos-=lifeScore[i].getWidth();
 			}
 			lifePos = 100;
 			totalScore[0].draw(screenWidth-100,150);
@@ -126,6 +127,9 @@ public class SprutOut extends BasicGame {
 			for(int i = 0; i < bricks.size();i++) {
 				Brick tmp = bricks.get(i);
 				arg1.drawImage(tmp.brickImage,tmp.x_pos,tmp.y_pos);
+			}
+			if(paused){
+				pauseImg.draw(230,300);
 			}
 			if(!slept) {
 				try {
@@ -157,6 +161,7 @@ public class SprutOut extends BasicGame {
 		scorePic = new Image("res/img/score.png");
 		lifeImg = new Image("res/img/life.png");
 		deadLife = new Image("res/img/life_dead.png");
+		pauseImg = new Image("res/img/paused.png");
 		
 		//Init score numbers
 		
